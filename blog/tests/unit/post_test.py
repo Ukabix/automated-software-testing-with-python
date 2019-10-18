@@ -16,3 +16,8 @@ class PostTest(TestCase):
         # same for content property
         self.assertEqual('Test content', p.content)
 
+    def test_json(self):
+        p = Post('Test', 'Test content')
+        expected = {'title': 'Test', 'content': 'Test content'}
+        # Check if dict ^ == p.json()
+        self.assertDictEqual(expected, p.json())
